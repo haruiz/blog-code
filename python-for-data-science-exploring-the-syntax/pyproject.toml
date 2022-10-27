@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "python-for-data-science-exploring-the-syntax"
+version = "0.1.0"
+description = ""
+authors = ["Henry Ruiz  <henryruiz22@gmail.com>"]
+readme = "README.md"
+packages = [{include = "python_for_data_science_exploring_the_syntax"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+numpy = "^1.23.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
