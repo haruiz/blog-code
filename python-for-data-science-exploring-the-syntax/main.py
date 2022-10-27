@@ -3,6 +3,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import json
+import os
 
 
 def read_image(image_path: str) -> bytes:
@@ -118,12 +119,14 @@ def detect_faces_on_image(image_bytes: bytes, API_KEY: str = None) -> list:
 
 
 def main():
-    image_path = input("Enter image path: ")
-    if not image_path:
-        image_path = "images/people.jpg"
+    image_path = input("Please provide the path of the image:")
+    if image_path == "" or not os.path.exists(image_path):
+        print("image path could not be empty or the image does not exist")
+        exit()
 
     image = read_image(image_path)
-    faces = detect_faces_on_image(image, API_KEY="AIzaSyAshVsKfrMlAkXxtb2uQ_N_ohS343A6oHk")
+    # For getting the API key, please follow the gcp documentation
+    faces = detect_faces_on_image(image, API_KEY="<GCP FACE DETECTION API API KEY>")
     print("number of faces found:", len(faces))
     for face in faces:
         print(face["is_happy"])
